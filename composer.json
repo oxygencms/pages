@@ -1,0 +1,28 @@
+{
+    "name": "oxygencms/pages",
+    "description": "Oxygen cms crud commands",
+    "authors": [
+        {
+            "name": "Martin Blagoev",
+            "email": "mb.reppair@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Oxygencms\\Pages\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Oxygencms\\Pages\\PagesServiceProvider"
+            ]
+        }
+    }
+}
+
