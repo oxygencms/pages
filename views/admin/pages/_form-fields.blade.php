@@ -103,7 +103,7 @@
             <!-- body -->
             <div class="form-group">
                 <label for="{{ "body-$locale" }}">Body</label>
-                <textarea class="form-control"
+                <textarea class="form-control tinymce"
                           id="{{ "body-$locale" }}"
                           name="{{ "body[$locale]" }}"
                           rows="11"
@@ -153,4 +153,4 @@
     @endforeach
 </div>
 
-@include('oxygencms::admin.partials.tinymce', ['selector' => '#body-en', 'model' => $page])
+@include('oxygencms::admin.partials.tinymce', ['selector' => '.tinymce', 'model' => $page])

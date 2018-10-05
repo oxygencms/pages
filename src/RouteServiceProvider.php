@@ -37,7 +37,7 @@ class RouteServiceProvider extends ServiceProvider
                 return $page;
             }
 
-            $locales = config('app.locales');
+            $locales = config('oxygen.locales');
 
             unset($locales[$locale]);
 
@@ -99,16 +99,5 @@ class RouteServiceProvider extends ServiceProvider
                  Route::get('/', 'HomeController@show')->name('home');
                  Route::get('{page_slug}', 'PageController@show')->name('page.show');
              });
-    }
-
-
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 }

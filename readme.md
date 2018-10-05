@@ -1,1 +1,1 @@
-Pages module for the Oxygen CMS
+# Pages package for the Oxygen CMS.

@@ -2,7 +2,7 @@
 
 namespace Oxygencms\Pages\Models;
 
-use App\Traits\HasUploads;
+use Oxygencms\Uploads\Traits\HasUploads;
 use Oxygencms\Core\Models\Model;
 use Illuminate\Support\Facades\File;
 use Spatie\Translatable\HasTranslations;

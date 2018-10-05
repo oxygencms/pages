@@ -2,10 +2,9 @@
 
 namespace Oxygencms\Pages;
 
-use Artisan;
 use Illuminate\Support\ServiceProvider;
 
-class PagesServiceProvider extends ServiceProvider
+class PageServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
@@ -21,18 +20,16 @@ class PagesServiceProvider extends ServiceProvider
         ], 'views');
 
         $this->publishes([
-            __DIR__.'/../config/pages.php' => config_path('pages.php'),
-        ], 'config');
-
-        $this->publishes([
-            __DIR__.'/../database/migrations/2018_07_19_082950_create_pages_table.php' =>
-                database_path('migrations')."/2018_07_19_082950_create_pages_table.php",
+            __DIR__.'/../database/migrations' => database_path('migrations'),
         ], 'migrations');
 
         $this->publishes([
-            __DIR__.'/../database/seeds/PageTableSeeder.php' =>
-                database_path('seeds')."/PageTableSeeder.php",
+            __DIR__.'/../database/seeds' => database_path('seeds'),
         ], 'seeds');
+
+        $this->publishes([
+            __DIR__.'/../config/pages.php' => config_path('pages.php'),
+        ], 'config');
     }
 
     /**
@@ -45,15 +42,5 @@ class PagesServiceProvider extends ServiceProvider
         $this->app->register(AuthServiceProvider::class);
 
         $this->mergeConfigFrom(__DIR__.'/../config/pages.php', 'pages');
-    }
-
-    /**
-     * Publish all.
-     */
-    public static function vendorPublish()
-    {
-        Artisan::call('vendor:publish', [
-            '--provider' => 'Oxygencms\Pages\PagesServiceProvider',
-        ]);
     }
 }
