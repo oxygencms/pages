@@ -17,7 +17,7 @@ class PagePolicy extends BasePolicy
      */
     public function index(User $user)
     {
-        if ($user->can('see_pages') || $user->can('manage_pages')) {
+        if ($user->can('view_pages') || $user->can('manage_pages')) {
             return true;
         }
 
