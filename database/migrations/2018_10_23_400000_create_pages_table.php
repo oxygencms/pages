@@ -23,15 +23,15 @@ class CreatePagesTable extends Migration
             $table->string('template')
                   ->default(config('pages.default_template'));
 
-            $table->text('slug');
-            $table->text('title');
+            $table->json('slug');
+            $table->json('title');
 
-            $table->text('summary')->nullable();
-            $table->text('body')->nullable();
+            $table->json('summary')->nullable();
+            $table->json('body')->nullable();
 
-            $table->text('meta_keywords')->nullable();
-            $table->text('meta_description')->nullable();
-            $table->text('meta_tags')->nullable();
+            $table->json('meta_keywords')->nullable();
+            $table->json('meta_description')->nullable();
+            $table->json('meta_tags')->nullable();
 
             $table->timestamps();
         });
