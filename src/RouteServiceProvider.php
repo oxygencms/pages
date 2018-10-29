@@ -55,6 +55,8 @@ class RouteServiceProvider extends ServiceProvider
 
             return abort(404);
         });
+
+
     }
 
     /**
@@ -78,12 +80,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapAdminRoutes()
     {
-        Route::middleware(['web', 'admin'])
-             ->namespace($this->namespace.'\\Admin')
-             ->prefix('admin')
-             ->group(function () {
-                 Route::resource('page', 'PageController', ['except' => 'show']);
-             });
+        Route::middleware([
+            'web',
+            'admin'
+        ])
+            ->namespace($this->namespace . '\\Admin')
+            ->prefix('admin')
+            ->group(function () {
+                Route::resource('page', 'PageController', ['except' => 'show']);
+            });
     }
 
     /**
@@ -95,9 +100,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')->namespace($this->namespace)->group(function () {
-                 Route::get('/', 'HomeController@show')->name('home');
-                 Route::get('{page_slug}', 'PageController@show')->name('page.show');
-             });
+        $namespace = config('oxygen.home_controller') ? '\App\Http\Controllers' : $this->namespace;
+
+        Route::middleware('web')->namespace($namespace)->group(function () {
+            Route::get('/', 'HomeController@show')->name('home');
+        });
+
+        $namespace = config('oxygen.page_controller') ? '\App\Http\Controllers' : $this->namespace;
+
+        Route::middleware('web')->namespace($namespace)->group(function () {
+            Route::get('{page_slug}', 'PageController@show')->name('page.show');
+        });
     }
 }
