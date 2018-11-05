@@ -59,7 +59,7 @@ class PageController extends Controller
 
         notification("$page->model_name successfully created.");
 
-        return redirect()->route('page.index');
+        return redirect()->route('admin.page.index');
     }
 
     /**

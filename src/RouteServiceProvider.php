@@ -86,6 +86,7 @@ class RouteServiceProvider extends ServiceProvider
         ])
             ->namespace($this->namespace . '\\Admin')
             ->prefix('admin')
+            ->name('admin.')
             ->group(function () {
                 Route::resource('page', 'PageController', ['except' => 'show']);
             });

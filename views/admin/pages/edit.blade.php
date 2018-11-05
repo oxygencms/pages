@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <form action="{{ route('page.update', $page) }}" method="POST">
+    <form action="{{ route('admin.page.update', $page) }}" method="POST">
         @csrf
         @method('patch')
         @include('oxygencms::admin.pages._form-fields')
