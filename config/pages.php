@@ -50,4 +50,17 @@ return [
 
     'default_template' => 'default',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Controllers
+    |--------------------------------------------------------------------------
+    |
+    | Change this to overwrite the package controllers.
+    |
+    */
+
+    'home_controller' => \Oxygencms\Pages\Controllers\HomeController::class,
+//    'page_controller' => \Oxygencms\Pages\Controllers\PageController::class,
+    'page_controller' => \App\Http\Controllers\PageController::class,
+
 ];

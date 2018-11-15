@@ -93,7 +93,7 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /**
-     * Define the "web" routes for the application.
+     * Define the "web" routes for the package.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
@@ -101,16 +101,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        $namespace = config('oxygen.home_controller') ? '\App\Http\Controllers' : $this->namespace;
-
-        Route::middleware('web')->namespace($namespace)->group(function () {
-            Route::get('/', 'HomeController@show')->name('home');
+        Route::middleware('web')->group(function () {
+            Route::get('/', config('pages.home_controller') . '@show')->name('home');
         });
 
-        $namespace = config('oxygen.page_controller') ? '\App\Http\Controllers' : $this->namespace;
-
-        Route::middleware('web')->namespace($namespace)->group(function () {
-            Route::get('{page_slug}', 'PageController@show')->name('page.show');
+        Route::middleware('web')->group(function () {
+            Route::get('{page_slug}', config('pages.page_controller') . '@show')->name('page.show');
         });
     }
 }
