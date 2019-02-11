@@ -2,13 +2,14 @@
 
 namespace Oxygencms\Pages\Models;
 
-use Oxygencms\Uploads\Traits\HasUploads;
 use Oxygencms\Core\Models\Model;
 use Illuminate\Support\Facades\File;
 use Spatie\Translatable\HasTranslations;
+use Oxygencms\Uploads\Traits\HasUploads;
+use Oxygencms\Pages\Interfaces\PageModel;
 use Illuminate\Database\Eloquent\Builder;
 
-class Page extends Model
+class Page extends Model implements PageModel
 {
     use HasUploads, HasTranslations;
 
@@ -44,7 +45,7 @@ class Page extends Model
      *
      * @return Builder
      */
-    public function scopeBySlug(Builder $query, string $slug, string $locale = null)
+    public function scopeBySlug(Builder $query, string $slug, string $locale = null): Builder
     {
         $locale = $locale ?: app()->getLocale();
 
@@ -56,7 +57,7 @@ class Page extends Model
      *
      * @return array
      */
-    public static function getLayouts()
+    public static function getLayouts(): array
     {
         return self::getViewsList('layout');
     }
@@ -66,7 +67,7 @@ class Page extends Model
      *
      * @return array
      */
-    public static function getTemplates()
+    public static function getTemplates(): array
     {
         return self::getViewsList('template');
     }
@@ -75,7 +76,7 @@ class Page extends Model
      * @param $string
      * @return array
      */
-    public static function getViewsList($string)
+    public static function getViewsList($string): array
     {
         $path = file_exists($dir = config('pages.'. $string .'s_path'))
             ? $dir
