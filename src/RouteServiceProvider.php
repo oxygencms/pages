@@ -26,12 +26,14 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot();
 
+        $Page = config('pages.model');
+
         // Explicitly bind the page_slug because of the translations (json)
-        Route::bind('page_slug', function ($slug) {
+        Route::bind('page_slug', function ($slug) use ($Page) {
 
             $locale = session('app_locale') ?: app()->getLocale();
 
-            $page = Page::bySlug($slug, $locale)->first();
+            $page = $Page::bySlug($slug, $locale)->first();
 
             if ($page) {
                 return $page;
@@ -44,7 +46,7 @@ class RouteServiceProvider extends ServiceProvider
             // search for this slug in the reset of the locales
             foreach ($locales as $key => $name) {
 
-                $page = Page::bySlug($slug, $key)->first();
+                $page = $Page::bySlug($slug, $key)->first();
 
                 if ($page) {
                     session()->put('app_locale', $key);

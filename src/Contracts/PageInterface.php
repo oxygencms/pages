@@ -1,10 +1,10 @@
 <?php
 
-namespace Oxygencms\Pages\Interfaces;
+namespace Oxygencms\Pages\Contracts;
 
 use Illuminate\Database\Eloquent\Builder;
 
-interface PageModel
+interface PageInterface
 {
     /**
      * Query the Slug json column of the model to get a page.

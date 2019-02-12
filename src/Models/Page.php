@@ -6,10 +6,10 @@ use Oxygencms\Core\Models\Model;
 use Illuminate\Support\Facades\File;
 use Spatie\Translatable\HasTranslations;
 use Oxygencms\Uploads\Traits\HasUploads;
-use Oxygencms\Pages\Interfaces\PageModel;
 use Illuminate\Database\Eloquent\Builder;
+use Oxygencms\Pages\Contracts\PageInterface;
 
-class Page extends Model implements PageModel
+class Page extends Model implements PageInterface
 {
     use HasUploads, HasTranslations;
 

@@ -62,4 +62,15 @@ return [
     'home_controller' => \Oxygencms\Pages\Controllers\HomeController::class,
     'page_controller' => \Oxygencms\Pages\Controllers\PageController::class,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Page Model
+    |--------------------------------------------------------------------------
+    |
+    | Change this to overwrite the package model.
+    |
+    */
+
+    'model' => \Oxygencms\Pages\Models\Page::class,
+
 ];
