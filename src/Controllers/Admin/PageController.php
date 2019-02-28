@@ -78,6 +78,8 @@ class PageController extends Controller
 
         $templates = Page::getTemplates();
 
+        $page->mapMediaUrls();
+
         return view('oxygencms::admin.pages.edit', compact('page', 'layouts', 'templates'));
     }
 

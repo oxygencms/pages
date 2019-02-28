@@ -41,18 +41,8 @@
                     ]"
                     theme="vgt-table striped condensed"
                     :search-options="{ enabled: true }"
-                    :select-options="{
-                        enabled: false,
-                        sortable: false,
-                        selectOnCheckboxOnly: true,
-                    }"
-                    @on-selected-rows-change="selectionChanged"
                     :pagination-options="{ enabled: true }"
             >
-                <div slot="selected-row-actions">
-                    <button @click="deleteSelectedRows">Delete</button>
-                </div>
-
                 <template slot="table-row" slot-scope="props">
                     <span v-if="props.column.field === 'links'">
                         <a :href="props.row.show_url" target="_blank">show</a>

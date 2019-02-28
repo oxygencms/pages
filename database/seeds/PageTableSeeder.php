@@ -14,6 +14,7 @@ class PageTableSeeder extends Seeder
     {
         $pages = [
             [
+                'name' => 'home',
                 'template' => 'home',
                 'slug' => [
                     'en' => '/',
@@ -26,6 +27,7 @@ class PageTableSeeder extends Seeder
             ],
 
             [
+                'name' => 'terms_and_conditions',
                 'template' => 'terms_and_conditions',
                 'slug' => [
                     'en' => 'terms-and-conditions',
@@ -38,6 +40,7 @@ class PageTableSeeder extends Seeder
             ],
 
             [
+                'name' => 'about_us',
                 'template' => 'about_us',
                 'slug' => [
                     'en' => 'about-us',
@@ -50,6 +53,7 @@ class PageTableSeeder extends Seeder
             ],
 
             [
+                'name' => 'contact_us',
                 'template' => 'contact_us',
                 'slug' => [
                     'en' => 'contact-us',

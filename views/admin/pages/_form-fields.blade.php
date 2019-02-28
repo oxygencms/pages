@@ -1,6 +1,20 @@
 <div class="row">
+    <!-- name -->
+    <div class="form-group col-4">
+        <label for="name">System Name <strong>*</strong></label>
+        <input type="text"
+               class="form-control {{ $errors->has('name') ? 'is-invalid' : null }}"
+               id="name"
+               name="name"
+               placeholder="Enter page name..."
+               value="{{ old('name', optional($page)->name) }}"
+               @if(isset($page)) readonly @endif
+        >
+        {!! $errors->first('name', '<small class="form-text text-danger">:message</small>') !!}
+    </div>
+
     <!-- layout -->
-    <div class="form-group col-6">
+    <div class="form-group col-4">
         <label for="layout">Layout</label>
         <select class="form-control"
                 id="layout"
@@ -18,7 +32,7 @@
     </div>
 
     <!-- template -->
-    <div class="form-group col-6">
+    <div class="form-group col-4">
         <label for="template">Template</label>
         <select class="form-control"
                 id="template"

@@ -2,16 +2,15 @@
 
 namespace Oxygencms\Pages\Models;
 
-use Oxygencms\Core\Models\Model;
 use Illuminate\Support\Facades\File;
+use Oxygencms\Core\Models\MediaModel;
 use Spatie\Translatable\HasTranslations;
-use Oxygencms\Uploads\Traits\HasUploads;
 use Illuminate\Database\Eloquent\Builder;
 use Oxygencms\Pages\Contracts\PageInterface;
 
-class Page extends Model implements PageInterface
+class Page extends MediaModel implements PageInterface
 {
-    use HasUploads, HasTranslations;
+    use HasTranslations;
 
     /**
      * @var array $guarded

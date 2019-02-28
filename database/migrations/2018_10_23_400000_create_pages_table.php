@@ -17,6 +17,7 @@ class CreatePagesTable extends Migration
             $table->increments('id');
 
             $table->boolean('active')->default(1);
+            $table->string('name')->unique()->comment('system name');
 
             $table->string('layout')
                   ->default(config('pages.default_layout'));

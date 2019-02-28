@@ -33,7 +33,9 @@ class PageRequest extends FormRequest
         $templates = implode(',', Page::getTemplates()['list']);
 
         $rules = [
-            'online' => 'boolean',
+            'active' => 'boolean',
+
+            'name' => "required|alpha_dash|unique:pages,name,$key",
 
             'layout'  => "required|string|in:$layouts",
             'template' => "required|string|in:$templates",
