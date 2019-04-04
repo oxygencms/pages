@@ -15,14 +15,12 @@
 
         @include('oxygencms::admin.pages._form-fields')
 
-        <input type="hidden" name="temporary_id" value="{{ $temporary->id }}">
-
         <button class="btn btn-primary" type="submit">Save</button>
     </form>
 
-    <media-uploads mediable_type="{{ get_class($temporary) }}"
-                   mediable_id="{{ $temporary->id }}"
-                   :media="{{ $temporary->media }}"
+    <media-uploads :session_temporary_id="{{ session()->get('temporary-id-for-user-' . auth()->id())
+                                     ? session()->get('temporary-id-for-user-' . auth()->id())
+                                     : 0 }}"
                    class="mt-3"
     ></media-uploads>
 
