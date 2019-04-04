@@ -4,11 +4,14 @@ namespace Oxygencms\Pages\Controllers\Admin;
 
 use JavaScript;
 use Oxygencms\Pages\Models\Page;
+use Oxygencms\Core\Traits\TemporaryMedia;
 use Oxygencms\Pages\Requests\PageRequest;
 use Oxygencms\Core\Controllers\Controller;
 
 class PageController extends Controller
 {
+    use TemporaryMedia;
+
     /**
      * Display a listing of the resource.
      *
@@ -40,7 +43,9 @@ class PageController extends Controller
 
         $page = null;
 
-        return view('oxygencms::admin.pages.create', compact('layouts', 'templates', 'page'));
+        $temporary = $this->createTemporary();
+
+        return view('oxygencms::admin.pages.create', compact('layouts', 'templates', 'page', 'temporary'));
     }
 
     /**
@@ -56,6 +61,8 @@ class PageController extends Controller
         $this->authorize('create', Page::class);
 
         $page = Page::create($request->validated());
+
+        $this->moveMedia($page, $request->temporary_id);
 
         notification("$page->model_name successfully created.");
 
