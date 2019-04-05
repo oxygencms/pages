@@ -55,7 +55,7 @@ class PageController extends Controller
     {
         $this->authorize('create', Page::class);
 
-        $page = Page::create($request->validated(), $request->temporary_id);
+        $page = Page::create($request->validated());
 
         notification("$page->model_name successfully created.");
 
