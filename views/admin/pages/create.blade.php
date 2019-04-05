@@ -18,10 +18,6 @@
         <button class="btn btn-primary" type="submit">Save</button>
     </form>
 
-    <media-uploads :session_temporary_id="{{ session()->get('temporary-id-for-user-' . auth()->id())
-                                     ? session()->get('temporary-id-for-user-' . auth()->id())
-                                     : 0 }}"
-                   class="mt-3"
-    ></media-uploads>
+    <media-uploads class="mt-3"></media-uploads>
 
 @endsection
