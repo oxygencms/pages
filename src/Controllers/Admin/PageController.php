@@ -12,7 +12,7 @@ class PageController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index()
@@ -27,7 +27,7 @@ class PageController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
@@ -67,7 +67,7 @@ class PageController extends Controller
      *
      * @param Page $page
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Page $page)
@@ -89,7 +89,7 @@ class PageController extends Controller
      * @param PageRequest $request
      * @param Page        $page
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(PageRequest $request, Page $page)

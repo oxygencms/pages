@@ -15,12 +15,6 @@ class PageController extends Controller
     {
         $data = compact('page');
 
-//        switch ($page->template) {
-//            case 'venues':
-//                $data['venues'] = Venue::all();
-//                break;
-//        }
-
         return view("oxygencms::pages.$page->template", $data);
     }
 }

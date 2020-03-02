@@ -5,12 +5,14 @@ namespace Oxygencms\Pages\Models;
 use Illuminate\Support\Facades\File;
 use Oxygencms\Core\Models\MediaModel;
 use Spatie\Translatable\HasTranslations;
+use Oxygencms\Uploads\Traits\HasUploads;
 use Illuminate\Database\Eloquent\Builder;
 use Oxygencms\Pages\Contracts\PageInterface;
 
 class Page extends MediaModel implements PageInterface
 {
-    use HasTranslations;
+    use HasUploads, # added for backward compatibility
+        HasTranslations;
 
     /**
      * @var array $guarded

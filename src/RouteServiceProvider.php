@@ -2,7 +2,6 @@
 
 namespace Oxygencms\Pages;
 
-use Oxygencms\Pages\Models\Page;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 

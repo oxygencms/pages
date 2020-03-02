@@ -32,7 +32,7 @@ class PageRequest extends FormRequest
 
         $templates = implode(',', Page::getTemplates()['list']);
 
-        $rules = [
+        return [
             'active' => 'boolean',
 
             'name' => "required|alpha_dash|unique:pages,name,$key",
@@ -61,7 +61,5 @@ class PageRequest extends FormRequest
             'meta_tags' => 'nullable|array|distinct',
             'meta_tags.*' => 'nullable|string',
         ];
-
-        return $rules;
     }
 }
